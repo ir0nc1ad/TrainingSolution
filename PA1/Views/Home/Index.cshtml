@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@model PA1.Models.SubtractionModel
+
+<h3>
+    <b>Difference:</b> @ViewBag.Difference <br />
+</h3>
+
+@Html.ValidationSummary(false, "")
+
+@using (Html.BeginForm("SubtractionForm", "Home", FormMethod.Post))
+{
+<table>
+    <tr>
+        <td>Enter Minuend: </td>
+        <td>@Html.TextBoxFor(m => m.Minuend, new {@type = "number", @step = "any" })</td>
+    </tr>
+    <tr>
+        <td>Enter Subtrahend: </td>
+        <td>@Html.TextBoxFor(m => m.Subtrahend, new { @type = "number", @step = "any" })</td>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="submit" value="Subtract" /></td>
+    </tr>
+</table>
+}
